@@ -22,7 +22,7 @@ class Menu:
         choice1 = int(input("Wprowadz swoj wybor: "))
         if choice1 == 1:
             self.codeChoice = "parity_bit"
-            # self.packetLen=self.packetLen+1
+            # self.packetLen=self.packetLen-1
         elif choice1 == 2:
             self.codeChoice = "check_sum"
         elif choice1 == 3:
