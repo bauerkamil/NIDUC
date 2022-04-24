@@ -19,6 +19,7 @@ class ResultsToFile:
         self.resendNum = self.resendNum+1
 
     def _printToCsv_(self, approvedPackets):
+        self.resendNum = 0
         mistakesApproved = 0
         for i in range(0, numpy.shape(self.sentPackets)[0]):
             for j in range(0, self.packetLen):
@@ -26,7 +27,7 @@ class ResultsToFile:
                     mistakesApproved = mistakesApproved+1
 
         row = [self.codeChoice, self.channel, self.msgLen, self.packetLen,
-               self.probability, self.numOfIter, self.resendNum, mistakesApproved]
+               self.probability, self.numOfIter, self.resendNum, mistakesApproved, numpy.array_equal(self.sentPackets,approvedPackets)]
 
         with open(self.fileName, 'a') as csvfile:
             # creating a csv writer object
