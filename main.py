@@ -16,10 +16,9 @@ while continueBool:
     print(' Wprowadź ilość iteracji\n')
     iterNum = int(input("Wprowadz swoj wybor: "))
 
-
-    menu = Menu(msgLen,packetLen,probability,iterNum)
+    menu = Menu(msgLen, packetLen, probability, iterNum)
 
     print(' Chcesz kontynuować? [y/n]\n')
     yn = input("Wprowadz swoj wybor: ")
-    if yn=='n':
-        continueBool=False
+    if yn == 'n':
+        continueBool = False

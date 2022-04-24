@@ -1,0 +1,2 @@
+codeChoice, channel, msgLen, packetLen, probability, numOfIter, resendNum, mistakesApproved
+parity_bit,BSC,42,8,0.01,100,0,0
