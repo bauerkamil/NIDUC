@@ -20,9 +20,10 @@ class ResultsToFile:
 
     def _printToCsv_(self, approvedPackets):
         mistakesApproved = 0
-        # for i in range(0, numpy.shape(self.sentPackets)[0]):
-        #     if self.sentPackets[i] != approvedPackets[i]:
-        #         mistakesApproved = mistakesApproved+1
+        for i in range(0, numpy.shape(self.sentPackets)[0]):
+            for j in range(0, self.packetLen):
+                if self.sentPackets[i][j] != approvedPackets[i][j]:
+                    mistakesApproved = mistakesApproved+1
 
         row = [self.codeChoice, self.channel, self.msgLen, self.packetLen,
                self.probability, self.numOfIter, self.resendNum, mistakesApproved]

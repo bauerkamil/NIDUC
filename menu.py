@@ -22,10 +22,12 @@ class Menu:
         choice1 = int(input("Wprowadz swoj wybor: "))
         if choice1 == 1:
             self.codeChoice = "parity_bit"
+            # self.packetLen=self.packetLen+1
         elif choice1 == 2:
             self.codeChoice = "check_sum"
         elif choice1 == 3:
             self.codeChoice = "parity_bit_check_sum"
+            # self.packetLen=self.packetLen+1
         else:
             print('Wrong choice')
             return
@@ -51,7 +53,8 @@ class Menu:
         self.chanel = Chanel(self.packets, self.probability)
         self.receiver = Receiver(self.packets, self.packetLen)
 
-        self._sendNew_()
+        for i in range(0,self.numOfIter):
+            self._sendNew_()
 
     def _sendNew_(self):
         self.sender.data = self.generator.generate_data()  # generowanie ciągu 0 i 1
@@ -61,25 +64,25 @@ class Menu:
     def _send_(self):
         self.packets = self._encode_()
 
-        print("Wyslany:")
-        print(self.packets)
+        # print("Wyslany:")
+        # print(self.packets)
 
         self.chanel.packets = self.packets
         self.csvWriter.sentPackets = self.packets
 
         self._addNoise_()  # zaklocenia
 
-        print("Otrzymany:")
-        print(self.packets)
+        # print("Otrzymany:")
+        # print(self.packets)
 
         self.receiver.packets = self.packets
         answear = self._decode_()
         if answear:
             self.csvWriter._printToCsv_(self.packets)
-            print("Odpowiedz: Zaakceptowano")
+            # print("Odpowiedz: Zaakceptowano")
 
         else:
-            print("Odpowiedz: Odrzucono")
+            # print("Odpowiedz: Odrzucono")
             self.csvWriter._addRep_()
             self._send_()
 
