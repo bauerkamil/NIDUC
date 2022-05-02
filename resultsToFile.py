@@ -19,7 +19,10 @@ class ResultsToFile:
         self.resendNum = self.resendNum+1
 
     def _printToCsv_(self, approvedPackets):
-        
+        # print("Approved with:")
+        # print(self.sentPackets)
+        # print(approvedPackets)
+
         mistakesApproved = 0
         for i in range(0, numpy.shape(self.sentPackets)[0]):
             for j in range(0, self.packetLen):

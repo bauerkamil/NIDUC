@@ -15,6 +15,7 @@ class Receiver:
             packet_str = packet_str[:-2]
             if packet_str.count("1") % 2 != parity_bit:
                 is_correct = False
+                break
         return is_correct
 
     def decoder_check_sum(self):                       #suma kontrolna - dekodowanie

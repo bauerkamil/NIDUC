@@ -68,7 +68,7 @@ class Menu:
         # print(self.packets)
 
         self.chanel.packets = self.packets
-        self.csvWriter.sentPackets = self.packets
+        self.csvWriter.sentPackets = self.packets.copy()
 
         self._addNoise_()  # zaklocenia
 

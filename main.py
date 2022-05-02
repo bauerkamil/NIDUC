@@ -20,5 +20,6 @@ while continueBool:
 
     print(' Chcesz kontynuować? [y/n]\n')
     yn = input("Wprowadz swoj wybor: ")
+    
     if yn == 'n':
         continueBool = False
