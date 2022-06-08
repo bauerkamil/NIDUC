@@ -1,5 +1,7 @@
 import komm
 import numpy
+import sys
+sys.setrecursionlimit(3000)
 from Sender import Sender
 from Receiver import Receiver
 from Chanel import Chanel
@@ -98,7 +100,7 @@ class Menu:
         if self.channelChoice == "BSC":
             for i in range(0, numpy.shape(self.chanel.packets)[0]):
                 self.packets[i] = self.chanel.BSC(
-                    self.chanel.p, self.chanel.packets[i])
+                    self.probability, self.chanel.packets[i])
 
         if self.channelChoice == "BEC":
             for i in range(0, numpy.shape(self.chanel.packets)[0]):

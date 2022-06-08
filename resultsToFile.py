@@ -29,8 +29,9 @@ class ResultsToFile:
                 if self.sentPackets[i][j] != approvedPackets[i][j]:
                     mistakesApproved = mistakesApproved+1
 
+        ber = mistakesApproved/self.msgLen
         row = [self.codeChoice, self.channel, self.msgLen, self.packetLen,
-               self.probability, self.numOfIter, self.resendNum, mistakesApproved, numpy.array_equal(self.sentPackets,approvedPackets)]
+               self.probability, self.numOfIter, self.resendNum, mistakesApproved, ber, numpy.array_equal(self.sentPackets,approvedPackets)]
 
 
         with open(self.fileName, 'a') as csvfile:
