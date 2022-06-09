@@ -15,6 +15,7 @@ class ResultsToFile:
         self.probability = probability  # probability
         self.numOfIter = numOfIter  # number of iterations
 
+
     def _addRep_(self):
         self.resendNum = self.resendNum+1
 

@@ -1,4 +1,14 @@
 from menu import Menu
+import csv
+
+fileName = "results.csv"
+row = ['codeChoice','channel','msgLen','packetLen','probability','iterations','resendNum','mistakesApproved','ber','equalSend']
+with open(fileName, 'w') as csvfile:
+            # creating a csv writer object
+    csvwriter = csv.writer(csvfile)
+
+            # writing the data rows
+    csvwriter.writerow(row)
 
 continueBool = True
 
