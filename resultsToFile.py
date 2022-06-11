@@ -6,7 +6,7 @@ class ResultsToFile:
 
     def __init__(self, codeChoice, channel, msgLen, packetLen, probability, numOfIter):
         self.fileName = "results.csv"
-        self.sentPackets = []
+        self.originalPackets = []
         self.resendNum = 0
         self.codeChoice = codeChoice
         self.channel = channel
@@ -25,14 +25,14 @@ class ResultsToFile:
         # print(approvedPackets)
 
         mistakesApproved = 0
-        for i in range(0, numpy.shape(self.sentPackets)[0]):
+        for i in range(0, numpy.shape(self.originalPackets)[0]):
             for j in range(0, self.packetLen):
-                if self.sentPackets[i][j] != approvedPackets[i][j]:
+                if self.originalPackets[i][j] != approvedPackets[i][j]:
                     mistakesApproved = mistakesApproved+1
 
         ber = mistakesApproved/self.msgLen
         row = [self.codeChoice, self.channel, self.msgLen, self.packetLen,
-               self.probability, self.numOfIter, self.resendNum, mistakesApproved, ber, numpy.array_equal(self.sentPackets,approvedPackets)]
+               self.probability, self.numOfIter, self.resendNum, mistakesApproved, ber, numpy.array_equal(self.originalPackets,approvedPackets)]
 
 
         with open(self.fileName, 'a') as csvfile:
