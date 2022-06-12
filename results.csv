@@ -1,1 +1,6 @@
 codeChoice,channel,msgLen,packetLen,probability,iterations,resendNum,mistakesApproved,ber,equalSend
+check_sum,BEC,60,25,0.1,5,23,0,0.0,True
+check_sum,BEC,60,25,0.1,5,6,0,0.0,True
+check_sum,BEC,60,25,0.1,5,20,0,0.0,True
+check_sum,BEC,60,25,0.1,5,13,0,0.0,True
+check_sum,BEC,60,25,0.1,5,16,0,0.0,True

@@ -68,7 +68,8 @@ class Simulator:
         # print(self.originalPackets)
         self.csvWriter.originalPackets = self.originalPackets
 
-        self.sentPackets = self.originalPackets.copy()
+        self.sentPackets = numpy.arange(self.numOfPackets * self.packetLen).reshape(self.numOfPackets, self.packetLen)
+
         self.receiver.packets = self.sentPackets
 
         for i in range(0, self.numOfPackets):
@@ -78,8 +79,9 @@ class Simulator:
 
 
     def _send_(self, packetNum):
-        # print("Wysłany:")
-        # print(self.originalPackets[packetNum])
+        self.sentPackets[packetNum] = self.originalPackets[packetNum].copy()
+        print("Wysłany:")
+        print(self.sentPackets[packetNum])
 
         # self.chanel.packets = self.originalPackets
 
@@ -87,8 +89,8 @@ class Simulator:
 
         self._addNoise_(packetNum)  # zaklocenia
 
-        # print("Otrzymany:")
-        # print(self.sentPackets[packetNum])
+        print("Otrzymany:")
+        print(self.sentPackets[packetNum])
 
         self.receiver.packets[packetNum] = self.sentPackets[packetNum]
 

@@ -18,8 +18,9 @@ class Chanel:
         bec = komm.BinaryErasureChannel(p)
         bec_packet = bec(packet)
 
-        for i in range(len(bec_packet)):
-            bec_packet[i] %= 2
+        for i in range(0, len(bec_packet)):
+            if bec_packet[i] == 2:
+                bec_packet[i] = 0
         return bec_packet
 
     def data_transmission(self):
