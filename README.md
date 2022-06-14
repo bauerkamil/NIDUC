@@ -6,5 +6,4 @@ Natalia Gornikowska, <br />
 Kacper Kemblowski
 
 # How to choose
-Przy bicie parzystości ilość w pakiecie podzielna +1 przez długość wiad
-Przy sumie ilość w pakiecie podzielna przez długość wiad
+Please ensure that message length is divisible by 20 (or change packetLen in program)
